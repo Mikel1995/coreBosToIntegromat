@@ -1,12 +1,11 @@
 {
   "qs": {
-    "operation": "describe",
-    "elementType": "Accounts",
+    "operation": "listtypes",
     "sessionName": "{{connection.sessionName}}"
   },
   "url": "{{parameters.corebosurl}}/webservice.php",
   "method": "GET",
   "response": {
-    "output": "{{transformFieldsToUpdate(body.result.fields)}}"
+    "output": "{{transformFillSearchObject(body.result.types)}}"
   }
 }

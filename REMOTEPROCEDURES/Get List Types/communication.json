@@ -3,7 +3,7 @@
     "operation": "listtypes",
     "sessionName": "{{connection.sessionName}}"
   },
-  "url": "{{parameters.corebosurl}}/webservice.php",
+  "url": "http://demo.corebos.com/webservice.php",
   "method": "GET",
   "response": {
     "output": {

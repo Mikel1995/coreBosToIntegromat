@@ -1,5 +1,4 @@
-[
-  {
+[{
     "help": "The URL where coreBOS CRM is hosted.",
     "name": "corebosurl",
     "type": "text",

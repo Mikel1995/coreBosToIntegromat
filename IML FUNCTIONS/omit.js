@@ -1,14 +1,14 @@
-function omit(parameters, prefix = "") {
-  var object = {};
+function omit (parameters, prefix = '') {
+  var object = {}
   for (var key in parameters) {
     if (parameters[key] === null) {
-      continue;
+      continue
     }
-    if (key === "id") {
-      object[key] = prefix + "x" + parameters[key];
+    if (key === 'id') {
+      object[key] = prefix + 'x' + parameters[key]
     } else {
-      object[key] = parameters[key];
+      object[key] = parameters[key]
     }
   }
-  return JSON.stringify(object);
+  return JSON.stringify(object)
 }

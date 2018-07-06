@@ -6,13 +6,13 @@ function transformFilterInput(filter, objectName) {
     if (i === 0) {
       conditionForOr += "where ( ";
     } else {
-      conditionForOr += "or ( ";
+      conditionForOr += "or ( "
     }
     for (let j = 0; j < filter[i].length; j++) {
       var element = filter[i][j];
       condition = "";
       if (j > 0) {
-        conditionForAnd += " and ";
+        conditionForAnd += " and "
       }
       switch (element.o) {
         case "number:eq":
@@ -29,11 +29,11 @@ function transformFilterInput(filter, objectName) {
           break;
         case "text:endsWith":
           condition = " like ";
-          element.b = "%" + element.b;
+          element.b = "%" + element.b
           break;
         case "text:contains":
           condition = " like ";
-          element.b = "%" + element.b + "%";
+          element.b = "%" + element.b + "%"
           break;
         case "number:lt":
           condition = " < ";
@@ -54,6 +54,6 @@ function transformFilterInput(filter, objectName) {
     }
     conditionForOr += conditionForAnd + " ) ";
   }
-  var query = "select * from " + objectName + " " + conditionForOr + ";";
+  var query = 'select * from ' + objectName + ' ' + conditionForOr + ';';
   return query;
 }

@@ -1,5 +1,4 @@
-[
-	{
+[{
 		"qs": {
 			"operation": "describe",
 			"elementType": "{{parameters.elementType}}",
@@ -15,16 +14,17 @@
 	},
 	{
 		"qs": {
-			"id": "{{temp.idPrefix}}x{{parameters.recordid}}",
 			"operation": "SetRelation",
 			"sessionName": "{{connection.sessionName}}",
-			"relate_this_id": "{{}}",
-			"with_these_ids": "{{}}"
+			"relate_this_id": "{{temp.idPrefix}}x{{parameters.objectid}}",
+			"with_these_ids": "{{toJSON(parameters.torealtearray)}}"
 		},
 		"url": "{{parameters.corebosurl}}/webservice.php",
 		"method": "GET",
 		"response": {
-			"output": "{{body.result}}"
+			"output": {
+				"status": "{{body.result}}"
+			}
 		}
 	}
 ]

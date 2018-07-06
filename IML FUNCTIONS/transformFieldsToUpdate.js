@@ -1,52 +1,49 @@
 function transformFieldsToUpdate(costumFields) {
-  var j = 0;
   var arrayToReturn = [];
 
   for (var j = 0; j < costumFields.length; j++) {
     var result = {};
     var search = {};
     var parameter = {};
-    var parameters = [
-      {
-        name: "q",
-        type: "text",
-        label: "Query",
-        help: "Can be empty"
-      }
-    ];
-    var assignOption = [
-      {
-        label: "Me",
-        value: "19x1",
-        default: true
-      }
-    ];
+    var parameters = [{
+      name: "q",
+      type: "text",
+      label: "Query",
+      help: "Can be empty"
+    }];
+    var assignOption = [{
+      label: 'Me',
+      value: '19x1',
+      default: true
+    }];
     var options = [];
 
     switch (costumFields[j].type.name) {
-      case "picklist":
+      case 'picklist':
         result.type = "select";
         result.options = costumFields[j].type.picklistValues;
         break;
-      case "owner":
+      case 'owner':
         result.options = assignOption;
         result.type = "select";
         break;
-      case "datetime":
+      case 'datetime':
         result.type = "date";
         break;
       default:
         result.type = "text";
     }
 
+
     if (costumFields[j].type.refersTo) {
       search.url = "rpc://RpcQueryData";
       search.label = "Search";
-      parameter.name = "elementType";
+      parameter.name = "searchModule";
       parameter.type = "select";
       parameter.label = "Type";
 
       for (var i = 0; i < costumFields[j].type.refersTo.length; i++) {
+
         if (i === 0) {
           options[i] = {
             label: costumFields[j].type.refersTo[i],
@@ -59,6 +56,7 @@ function transformFieldsToUpdate(costumFields) {
             value: costumFields[j].type.refersTo[i]
           };
         }
+
       }
 
       parameter.options = options;
@@ -69,7 +67,7 @@ function transformFieldsToUpdate(costumFields) {
 
     result.name = costumFields[j].name;
     result.label = costumFields[j].label;
-    result.advanced = true;
+    result.advanced = true
 
     arrayToReturn[j] = result;
   }
@@ -80,6 +78,6 @@ function transformFieldsToUpdate(costumFields) {
     label: "Object Id",
     advanced: false,
     required: true
-  };
+  }
   return arrayToReturn;
 }
