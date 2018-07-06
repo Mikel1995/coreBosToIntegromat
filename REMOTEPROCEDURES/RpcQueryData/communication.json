@@ -1,0 +1,16 @@
+{
+	"qs": {
+		"query": "SELECT id, first_name,last_name FROM Users  LIMIT 15;",
+		"operation": "query",
+		"sessionName": "{{connection.sessionName}}"
+	},
+	"url": "{{parameters.corebosurl}}/webservice.php",
+	"method": "GET",
+	"response": {
+		"output": {
+			"label": "{{item.last_name}}",
+			"value": "{{item.id}}"
+		},
+		"iterate": "{{body.result}}"
+	}
+}

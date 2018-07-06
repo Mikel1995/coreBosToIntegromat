@@ -1,0 +1,20 @@
+{
+  "qs": {
+    "operation": "describe",
+    "elementType": "{{parameters.elementType}}",
+    "sessionName": "{{connection.sessionName}}"
+  },
+  "url": "{{parameters.corebosurl}}/webservice.php",
+  "method": "GET",
+  "response": {
+    "output": {
+      "help": "Record Id",
+      "name": "recordid",
+      "type": "number",
+      "label": "My Parameter",
+      "default": "{{body.result.idPrefix}}",
+      "advanced": false,
+      "required": true
+    }
+  }
+}
