@@ -96,7 +96,7 @@ Those are well explained on their site, so i will explain a specific case.
 
 This is a function that create a query on base of Filter on integromat:</br>
 
-```JSON
+```JAVASCRIPT
 function transformFilterInput(filter, objectName) {
             var conditionForOr = "";
 
